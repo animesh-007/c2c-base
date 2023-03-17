@@ -43,7 +43,7 @@ criterion_kld = KLDLoss()
 criterion_dic = {'CE': criterion_ce, 'KLD': criterion_kld}
 
 # Observe that all parameters are being optimized
-optimizer = optim.Adam(model_ft.parameters(), lr=1e-1)
+optimizer = optim.Adam(model_ft.parameters(), lr=1e-4)
 
 model_ft = train.train_model(model_ft, 
                              criterion_dic, 
@@ -51,7 +51,7 @@ model_ft = train.train_model(model_ft,
                              df, 
                              data_transforms=data_transforms,
                              alpha=1, 
-                             beta=0.1, 
+                             beta=0.01, 
                              gamma=0.01, 
                              num_epochs=30, 
                              fpath='./checkpoint.pt',

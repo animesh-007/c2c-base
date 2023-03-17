@@ -73,9 +73,9 @@ def train_model(model, criterion_dic, optimizer, df, data_transforms, alpha=1., 
                 model.train()  # Set model to training mode
             else:
                 model.eval()   # Set model to evaluate mode
-                # epoch_acc = eval_model(valid_images, valid_images_label, model, data_transforms=data_transforms)
+                epoch_acc = eval_model(valid_images, valid_images_label, model, data_transforms=data_transforms)
 
-                epoch_acc = eval_model(model, dataloaders[phase], dataset_sizes[phase], data_transforms)
+                # epoch_acc = eval_model(model, dataloaders[phase], dataset_sizes[phase], data_transforms)
 
                 if wandb_monitor:
                     wandb.log({"validation accracy": epoch_acc})
